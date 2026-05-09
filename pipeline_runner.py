@@ -4,6 +4,12 @@ Usage: python pipeline_runner.py <input_video_path> <output_dir>
 Prints: PROGRESS:<0-100>:<message>  and  OUTPUT_VIDEO:<path>  STATS_FILE:<path>
 """
 import os, sys, json
+import torch
+try:
+    import ultralytics.nn.tasks
+    torch.serialization.add_safe_globals([ultralytics.nn.tasks.DetectionModel])
+except Exception:
+    pass
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
