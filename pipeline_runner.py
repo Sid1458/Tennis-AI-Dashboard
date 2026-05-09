@@ -34,7 +34,7 @@ def main():
     video_frames = read_video(input_path)
 
     prog(10, "Loading AI models")
-    player_tracker = PlayerTracker(model_path='yolov8x')
+    player_tracker = PlayerTracker(model_path='yolov8x.pt')
     ball_tracker   = BallTracker(model_path='models/yolo5_last.pt')
 
     stub_player = "tracker_stubs/player_detections.pkl"
